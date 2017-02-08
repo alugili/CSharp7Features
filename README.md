@@ -1,4 +1,4 @@
-# CSharp7Features
+# C# 7 Cheat Sheet
 New C# 7.0 features in Visual Studio 2017 RC
 
 1- Just open it with Visual Studio 2017 RC and everything should work! </br>
