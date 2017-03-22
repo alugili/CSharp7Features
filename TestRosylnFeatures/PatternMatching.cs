@@ -15,26 +15,46 @@ namespace TestRosylnFeatures
     // 3) Var patterns of the form var x (where x is an identifier), which always match, and simply put the value of the input into a fresh variable x with the same type as the input.
     public static void BasicExample()
     {
+      // Constant patterns
+      var myInt = 5;
+      var constatPatternInt = myInt is 5;
+      Console.WriteLine(constatPatternInt);
+
       var myText = "Type matched!";
-      var constatPattern = myText is null;
-      Console.WriteLine(constatPattern);
+      var constatPatternRef = myText is null;
+      Console.WriteLine(constatPatternRef);
 
-      var typePattern = myText is string x ? x : "not a string";
+      // Type patterns
+      if (myInt is int copiedValue)
+      {
+        Console.WriteLine($"I can use the copied value: {copiedValue}");
+      }
 
-      // prints text
-      Console.WriteLine(typePattern);
+      if (myText is string myTextCopied && myTextCopied.StartsWith("Type"))
+      {
+        Console.WriteLine($"I can use the copied value: {myTextCopied}");
+      }
+      var user = new ExpressionBodied.User("Bassam", 40);
 
-      object v = 42;
-      switch (v)
+      // Var patterns
+      if (user is var refCopiedUser)
+      {
+        Console.WriteLine($"it's a var pattern with the type {refCopiedUser.Name}");
+      }
+
+      object magicNumber = 42;
+      switch (magicNumber)
       {
         case string newString:
           Console.WriteLine($"{newString} is a string of length {myText.Length}");
           break;
+
         case int i when i > 40:
-          Console.WriteLine($"{v} is an {(i % 2 == 0 ? "even" : "odd")} int");
+          Console.WriteLine($"{magicNumber} is an {(i % 2 == 0 ? "even" : "odd")} int");
           break;
+
         default:
-          Console.WriteLine($"{v} is something else");
+          Console.WriteLine($"{magicNumber} is something else");
           break;
       }
     }
@@ -44,7 +64,7 @@ namespace TestRosylnFeatures
     {
       IEnumerable<object> items = new Collection<object>
       {
-        1,2, null, 2,5,0
+        1,2, null, new ExpressionBodied.User("Fadi", 5) , 2 , 5, 0 , new Collection<object> {3,2} , new Collection<object>()
       };
 
       Console.WriteLine(Sum(items));
@@ -65,9 +85,6 @@ namespace TestRosylnFeatures
             sum += val;
             break;
 
-          case var @var when (@var != null && (int)(@var) == 45):
-            break;
-
           //  The order of case clauses now matters!
           case IEnumerable<object> subList when subList.Any():
             sum += Sum(subList);
@@ -77,6 +94,12 @@ namespace TestRosylnFeatures
             break;
 
           case null:
+            break;
+
+          case var varPattern when varPattern is ExpressionBodied.User copiedUser && copiedUser.Age > 0:
+            {
+              sum += copiedUser.Age;
+            }
             break;
 
           // The default clause is always evaluated last!

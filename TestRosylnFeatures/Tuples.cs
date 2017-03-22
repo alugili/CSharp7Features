@@ -34,7 +34,7 @@ namespace TestRosylnFeatures
       var equalOperatorForTuple = tuple1 == tuple2; // ==> false
       Console.WriteLine(equalOperatorForTuple);
 
-      // !!Compare by value!! 
+      // !!Compare by value!! still not working!
       // var equalOperatorForValueTuple = valueTuple1 == valuetyuple2;  //==> true
     }
 
@@ -42,10 +42,11 @@ namespace TestRosylnFeatures
     public static void AdvancedExamples()
     {
       var crazyTuple = (Item1: 1, Item2: 20);
-      Console.WriteLine($"Crazy Item order: Item1 {crazyTuple.Item1}, Item2 {crazyTuple.Item2}");
+      Console.WriteLine($"Crazy Item order: Item1 {crazyTuple.Item2}, Item2 {crazyTuple.Item1}");
 
       // Local function which return a tuple (in expression body form)
-      (int X, int Y) ReturnTupleFunction() => (X: 1, Y: 2);
+      (int X, int Y) ReturnTupleFunction () => (X: 1, Y: 2);
+
       Console.WriteLine($"X={ReturnTupleFunction().X},  Y={ReturnTupleFunction().Y}");
 
       (int, int) SwapValues((int x, int y) value)
@@ -90,7 +91,10 @@ namespace TestRosylnFeatures
   public class UserEntity
   {
     public string Name { get; set; }
+
     public int Age { get; set; }
+
+    public int SomeOtherNotRequiredData { get; set; }
 
     public Permission Permission { get; set; }
   }

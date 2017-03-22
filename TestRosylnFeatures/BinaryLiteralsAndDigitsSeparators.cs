@@ -10,7 +10,7 @@ namespace TestRosylnFeatures
             Console.WriteLine(binary);
 
             var hex = 0x1c_a0_41_fe;
-            Console.WriteLine(hex);
+            Console.WriteLine("{0:X8}",hex);
 
             var numbers = new[] { 0b0_0000000, 0b0_0000001, 0b0_0000010, 0b0_0000011 };
             foreach (var number in numbers)

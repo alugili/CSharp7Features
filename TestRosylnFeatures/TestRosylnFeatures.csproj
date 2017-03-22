@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BinaryLiteralsAndDigitsSeparators.cs" />
     <Compile Include="Deconstruction.cs" />
+    <Compile Include="ExpressionBodied.cs" />
     <Compile Include="GeneralizedAsyncReturn.cs" />
     <Compile Include="LocalFunctions.cs" />
     <Compile Include="PatternMatching.cs" />
