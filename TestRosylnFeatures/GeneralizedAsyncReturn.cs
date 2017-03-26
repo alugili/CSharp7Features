@@ -29,18 +29,5 @@ namespace TestRosylnFeatures
         return await Task.Run(() => numbers.Sum());
       }
     }
-
-
-    public static async Task<int> ClassicTaskTemp(int[] numbers)
-    {
-      if (!numbers.Any())
-      {
-        return await Task.Run(() => 0);
-      }
-      else
-      {
-        return await Task.Run(() => numbers.Sum());
-      }
-    }
   }
 }

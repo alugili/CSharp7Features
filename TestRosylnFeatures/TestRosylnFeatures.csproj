@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryLiteralsAndDigitsSeparators.cs" />
+    <Compile Include="Closure.cs" />
     <Compile Include="Deconstruction.cs" />
     <Compile Include="ExpressionBodied.cs" />
     <Compile Include="GeneralizedAsyncReturn.cs" />
@@ -66,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Functional Languages and Structural Induction.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

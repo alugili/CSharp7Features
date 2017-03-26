@@ -69,6 +69,7 @@ namespace TestRosylnFeatures
       //Console.WriteLine(LocalFunctions.GetFactorialUsingLocal(105));
       //Console.ReadKey();
 
+      //Closure.ClosureDemo();
       //LocalFunctions.ClosuresDemo();
       //Console.ReadKey();
 
